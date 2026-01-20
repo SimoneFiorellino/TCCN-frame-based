@@ -17,15 +17,7 @@
 <a href="https://wandb.ai/site">
   <img alt="Weights & Biases" src="https://img.shields.io/badge/Tracking-W%26B-ffbe00?logo=weightsandbiases&logoColor=white">
 </a>
-
 </div>
-
-
-This repository contains the code and supplementary material for the paper:
-
-**Simone Fiorellino, Claudio Battiloro, Emilio Calvanese Strinati, Paolo Di Lorenzo**  
-*Frame-Based Zero-Shot Semantic Channel Equalization for AI-Native Communications*  
-IEEE Transactions on Cognitive Communications and Networking, 2026
 
 ## Abstract
 
@@ -39,4 +31,15 @@ cd TCCN-frame-based
 
 uv sync
 uv run pre-commit install
+```
+
+## BibTeX
+
+```
+@ARTICLE{fiorellino2025framebasedzeroshotsemanticchannel,
+      title={Frame-Based Zero-Shot Semantic Channel Equalization for AI-Native Communications}, 
+      author={Simone Fiorellino and Claudio Battiloro and Emilio Calvanese Strinati and Paolo Di Lorenzo},
+      year={2026},
+      journal={IEEE Transactions on Cognitive Communications and Networking}, 
+}
 ```
