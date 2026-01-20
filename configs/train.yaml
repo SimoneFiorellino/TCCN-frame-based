@@ -1,0 +1,39 @@
+task_name: "train"
+
+defaults:
+  - _self_
+  - callbacks: default
+  - trainer: default
+  - model: cifar10
+
+gpu_id: 0
+seed: 10 
+
+paths:
+  root_dir: .
+  data_dir: ${paths.root_dir}/data/
+  log_dir: ${paths.root_dir}/logs/
+  output_dir: ${hydra:runtime.output_dir}
+  work_dir: ${hydra:runtime.cwd}
+
+logger:
+  _target_: pytorch_lightning.loggers.wandb.WandbLogger
+  save_dir: ${paths.log_dir}
+  offline: True
+  id: null # pass correct id to resume experiment!
+  anonymous: null # enable anonymous logging
+  project: "relrep4semcom"
+  log_model: False # upload lightning ckpts
+  prefix: "" # a string to put at the beginning of metric keys
+  # entity: "" # set to name of your wandb team
+  group: ""
+  tags: ['20/03']
+  notes: ""
+  job_type: ""
+
+hydra:
+  run:
+    dir: ${paths.log_dir}/${task_name}/runs/${now:%Y-%m-%d}_${now:%H-%M-%S}
+  sweep:
+    dir: ${paths.log_dir}/${task_name}/multiruns/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    subdir: ${hydra.job.num}

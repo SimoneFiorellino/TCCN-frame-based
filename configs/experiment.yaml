@@ -1,0 +1,43 @@
+command:
+- ${env}
+- python
+- -m
+- ${program}
+- ${args_no_hyphens}
+method: grid
+metric:
+  goal: minimize
+  name: val/acc
+parameters:
+  model:
+    values:
+    - cifar100
+  model.encoder:
+    values:
+    - vit_base_patch16_224
+  model.idx_flag:
+    values:
+    - mean
+  model.n_anchors:
+    values:
+    - 25
+    - 75
+    - 125
+    - 175
+  model.phi_flag:
+    values:
+    - false
+  model.relative:
+    values:
+    - true
+  model.sim_type:
+    values:
+    - gaussian
+    - norm_inner_product
+  seed:
+    values:
+    - 10
+  trainer.max_epochs:
+    values:
+    - 30
+program: src.train

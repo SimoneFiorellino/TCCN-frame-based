@@ -1,0 +1,24 @@
+_target_: src.modules.vision_lit_module_opt.LitModule
+
+batch_size: 96
+num_workers: 32
+pin_memory: true
+n_anchors: 10 # max: 1300; 768
+# encoder
+dataset: mnist
+encoder: vit_base_patch16_224 # "rexnet_100", "vit_base_patch16_224", "vit_small_patch16_224", "vit_base_resnet50_384", "vit_base_patch16_224"
+n_classes: 10
+relative: False
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.0001
+  weight_decay: 0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.1
+  patience: 10
