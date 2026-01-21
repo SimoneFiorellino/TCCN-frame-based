@@ -33,6 +33,12 @@ uv sync
 uv run pre-commit install
 ```
 
+## Image Reconstruction Tasks
+
+```
+https://github.com/SimoneFiorellino/semcom-recon.git
+```
+
 ## BibTeX
 
 ```
